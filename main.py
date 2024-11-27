@@ -55,6 +55,9 @@ def upgrade_blocker(c: sqlite3.Cursor) -> None:
     elif blocker_status == "free":
         logging.info("Changing status to 'pro'.")
         data["additional"]["proStatus"] = "pro"
+    elif blocker_status == "trialed":
+        logging.info("Changing status to 'pro'.")
+        data["additional"]["proStatus"] = "pro"
 
     c.execute(
         "UPDATE settings SET value = ? WHERE key = 'settings'",
